@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Monsoon CloudMist — Community</title>
+  <link rel="shortcut icon" href="images/logo/logo.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/community.css">
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+    <div class="container-fluid">
+      <img src="images/logo/logo.jpg" alt="" height="40px">
+      <a class="navbar-brand" href="index.html" >Monsoon CloudMist </a>
+      <button class="navbar-toggler bg-info" data-bs-theme="dark" type="button" data-bs-theme="light"
+        data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link text-primary" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active text-primary" href="article.html">Articles</a></li>
+          <li class="nav-item"><a class="nav-link text-primary" href="demo.html">Journals</a></li>
+          <li class="nav-item"><a class="nav-link text-primary" href="community.html">Community</a></li>
+          <li class="nav-item"><a class="nav-link text-primary" href="profile.html">Profile</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <main class="container" id="top">
+    <!-- Hero with provided copy + CTA anchor -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-card" id="hero-title">
+        <h2>Community</h2>
+        <p style="margin-top:8px; margin-bottom:14px;">Connect with people who love the monsoon season.</p>
+
+        <div class="cta-row">
+          <a href="#community" class="btn-primary" aria-describedby="community-link">Join the community</a>
+          <button class="btn-ghost" id="new-observation">Share new observation</button>
+        </div>
+
+        <p style="margin-top:14px; color:var(--muted); font-size:13px;">
+          Read daily field updates, submit short reports from your area, and discuss changing patterns with fellow
+          monsoon watchers.
+        </p>
+      </div>
+
+      <!-- Right panel: quick stats -->
+      <aside class="panel" aria-labelledby="panel-stats">
+        <h4 id="panel-stats" style="margin:0 0 12px 0;">Community snapshot</h4>
+        <div class="stat-row">
+          <div class="stat"><b id="count-members">1.2k</b><span class="muted">members</span></div>
+          <div class="stat"><b id="count-updates">320</b><span class="muted">updates</span></div>
+          <div class="stat"><b id="count-comments">1.6k</b><span class="muted">comments</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Community Section (anchor target) -->
+    <section id="community" tabindex="-1" aria-labelledby="community-heading">
+      <h2 id="community-heading" style="margin:6px 0 12px 0;">Community updates & observations</h2>
+
+      <!-- Example updates grid -->
+      <div class="updates" id="updates">
+        <!-- JS will insert cards here -->
+      </div>
+
+      <!-- Comments: list + form -->
+      <div class="comment-area" style="margin-top:18px;">
+        <div class="comment-list" id="comment-list" aria-live="polite" aria-relevant="additions">
+          <!-- comments inserted here -->
+        </div>
+
+        <form id="comment-form" class="comment-form" aria-label="Post a comment">
+          <label for="cname">Your name</label>
+          <input id="cname" name="name" type="text" placeholder="e.g. Ravi" required />
+          <label for="ctext">Your observation</label>
+          <textarea id="ctext" name="text" rows="4" placeholder="What are you seeing where you live?"
+            required></textarea>
+          <button type="submit">Post observation</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="js/community.js"></script>
+</body>
+
+</html>
