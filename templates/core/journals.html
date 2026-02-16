@@ -1,0 +1,60 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Journals - Monsoon CloudMist{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="section-title">📝 Share Your Monsoon Story</h2>
+    
+    {% if user.is_authenticated %}
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Create New Journal</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{% url 'create_journal' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label class="form-label">Title</label>
+                            <input type="text" name="title" class="form-control" placeholder="Give your story a title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Content</label>
+                            <textarea name="content" class="form-control" rows="5" placeholder="Write about your monsoon experience..." required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Image (optional)</label>
+                            <input type="file" name="image" class="form-control" accept="image/*">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Publish Journal</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>🌧️ Monsoon Tips</h4>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Document the first rain of the season</li>
+                        <li>Capture the sounds of rain on different surfaces</li>
+                        <li>Write about your favorite rainy day activities</li>
+                        <li>Share photos of monsoon scenery</li>
+                        <li>Record your weather observations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="alert alert-info">
+        <h4>Join Our Community!</h4>
+        <p>Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to create journals and share your monsoon stories.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

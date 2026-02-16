@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Community - Monsoon CloudMist{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="section-title">🌧️ Community - Share Your Observations</h2>
+    
+    {% if user.is_authenticated %}
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>Share New Observation</h4>
+        </div>
+        <div class="card-body">
+            <form method="post" action="{% url 'create_community_post' %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <textarea name="content" class="form-control" rows="3" placeholder="What are you seeing where you live? How's the weather?" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Post Observation</button>
+            </form>
+        </div>
+    </div>
+    {% else %}
+    <div class="alert alert-info mb-4">
+        <h4>Join the Conversation!</h4>
+        <p>Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to post observations and connect with other monsoon enthusiasts.</p>
+    </div>
+    {% endif %}
+    
+    <h3 class="mb-4">Recent Observations</h3>
+    <div class="row">
+        {% for post in posts %}
+        <div class="col-md-12 mb-3">
+            <div class="card community-post">
+                <div class="card-body">
+                    <h5 class="username">{{ post.user.username }}</h5>
+                    <p class="card-text">{{ post.content }}</p>
+                    <p class="timestamp">{{ post.created_at|date:"F d, Y H:i" }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-md-12">
+            <div class="alert alert-info">
+                <p>No observations yet. Be the first to share what you're seeing!</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

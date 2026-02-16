@@ -1,0 +1,53 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Articles - Monsoon CloudMist{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="section-title">📖 Monsoon Articles</h2>
+    
+    <div class="row">
+        {% for article in articles %}
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3>{{ article.title }}</h3>
+                    <p class="text-muted"><small>Published: {{ article.created_at|date:"F d, Y" }}</small></p>
+                    <p>{{ article.content|truncatewords:100 }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        {% endfor %}
+    </div>
+    
+    <!-- Static Monsoon Article Content -->
+    <div class="card mt-4">
+        <div class="card-header">
+            <h3>☔ Understanding Monsoons</h3>
+        </div>
+        <div class="card-body article-content">
+            <h1>Monsoon</h1>
+            <p class="lead">A monsoon is traditionally a seasonal reversing wind accompanied by corresponding changes in precipitation.</p>
+            
+            <h3>What is a Monsoon?</h3>
+            <p>The term "monsoon" comes from the Arabic word "mawsim" meaning "season." Monsoons are characterized by a seasonal reversal of wind direction, bringing moisture from the ocean and causing heavy rainfall over land.</p>
+            
+            <h3>Asian Monsoon</h3>
+            <p>The Asian monsoon is the most significant monsoon system in the world, affecting India, Southeast Asia, and East Asia. It is driven by the temperature difference between the Asian continent and the Indian Ocean.</p>
+            
+            <h3>How Monsoons Form</h3>
+            <p>Monsoon circulation is driven by differential heating between the land and the ocean. During summer, the land heats up faster than the ocean, creating low pressure over land. This draws moist air from the ocean, causing rainfall.</p>
+            
+            <h3>Impact on Agriculture</h3>
+            <p>Monsoons are crucial for agriculture in many parts of the world, especially in South Asia. The summer monsoon provides about 70% of India's annual rainfall, essential for crops like rice, cotton, and sugarcane.</p>
+            
+            <h3>Global Monsoon Systems</h3>
+            <p>Besides the Asian monsoon, there are other monsoon systems including the West African monsoon, the Australian monsoon, and the North American monsoon. Together, they form the global monsoon system.</p>
+            
+            <h3>Climate Change Effects</h3>
+            <p>Climate change is affecting monsoon patterns worldwide. Studies show changes in rainfall intensity, timing, and distribution, making it crucial to understand and adapt to these changes.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

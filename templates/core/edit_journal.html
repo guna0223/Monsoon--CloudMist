@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Edit Journal - Monsoon CloudMist{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="section-title">✏️ Edit Journal</h2>
+    
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Update Your Journal</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label class="form-label">Title</label>
+                            <input type="text" name="title" class="form-control" value="{{ journal.title }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Content</label>
+                            <textarea name="content" class="form-control" rows="5" required>{{ journal.content }}</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Image (optional)</label>
+                            {% if journal.image %}
+                            <p>Current image: <a href="{{ journal.image.url }}">{{ journal.image.name }}</a></p>
+                            {% endif %}
+                            <input type="file" name="image" class="form-control" accept="image/*">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Journal</button>
+                        <a href="{% url 'profile' %}" class="btn btn-secondary">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

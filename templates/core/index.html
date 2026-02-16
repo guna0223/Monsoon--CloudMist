@@ -5,38 +5,44 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="hero text-center text-white d-flex align-items-center justify-content-center" style="min-height: 60vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-    <div class="container py-4">
-        <h1 style="margin-bottom: 20px;">Welcome to Monsoon CloudMist</h1>
-        <p style="margin-bottom: 20px; font-size: 1.2rem;">Share your monsoon stories and explore seasonal content!</p>
+<section class="hero text-center">
+    <div class="container">
+        <h1>Welcome to Monsoon CloudMist</h1>
+        <p>Share your monsoon stories and explore seasonal content!</p>
         <a href="{% url 'journals' %}" class="btn btn-light btn-lg">Start Journaling</a>
     </div>
 </section>
 
 <!-- Features Section -->
-<section class="container my-5">
+<section class="container">
     <div class="row text-center">
         <div class="col-md-4 mb-4">
-            <a href="{% url 'journals' %}" style="text-decoration: none; color: inherit;">
-                <div class="card p-3 h-100" style="cursor: pointer; transition: transform 0.3s;">
-                    <h3>Journaling</h3>
-                    <p>Write your monsoon memories and experiences.</p>
+            <a href="{% url 'journals' %}" style="text-decoration: none;">
+                <div class="card feature-card h-100">
+                    <div class="card-body">
+                        <h3>📝 Journaling</h3>
+                        <p>Write your monsoon memories and experiences. Document the rains, capture the moments.</p>
+                    </div>
                 </div>
             </a>
         </div>
         <div class="col-md-4 mb-4">
-            <a href="{% url 'articles' %}" style="text-decoration: none; color: inherit;">
-                <div class="card p-3 h-100" style="cursor: pointer; transition: transform 0.3s;">
-                    <h3>Articles</h3>
-                    <p>Read tips, stories, and inspiration for monsoon days.</p>
+            <a href="{% url 'articles' %}" style="text-decoration: none;">
+                <div class="card feature-card h-100">
+                    <div class="card-body">
+                        <h3>📖 Articles</h3>
+                        <p>Read tips, stories, and inspiration for monsoon days. Learn about weather patterns.</p>
+                    </div>
                 </div>
             </a>
         </div>
         <div class="col-md-4 mb-4">
-            <a href="{% url 'community' %}" style="text-decoration: none; color: inherit;">
-                <div class="card p-3 h-100" style="cursor: pointer; transition: transform 0.3s;">
-                    <h3>Community</h3>
-                    <p>Connect with people who love the monsoon season.</p>
+            <a href="{% url 'community' %}" style="text-decoration: none;">
+                <div class="card feature-card h-100">
+                    <div class="card-body">
+                        <h3>🌧️ Community</h3>
+                        <p>Connect with people who love the monsoon season. Share observations.</p>
+                    </div>
                 </div>
             </a>
         </div>
